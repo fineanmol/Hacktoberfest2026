@@ -1,0 +1,110 @@
+import java.util.HashMap;
+
+class LRUCache {
+
+    // Doubly Linked List Node class
+    static class Node {
+        Node next, prev;  // Pointers to previous and next nodes
+        int key, value;   // Stores the key-value pair
+
+        Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+
+            prev = null;
+            next = null;
+        }
+    }
+
+    Node head, tail;  // Dummy head and tail nodes (to make adding/removing easier)
+    HashMap<Integer, Node> map;  // Maps keys to their corresponding nodes in the list
+    int capacity;  // Maximum number of elements cache can store
+
+    // Constructor — initializes the cache with given capacity
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        this.map = new HashMap<>();
+
+        // Create dummy head and tail to avoid null checks during add/remove
+        head = new Node(-1, -1);
+        tail = new Node(-1, -1);
+
+        // Link head and tail together initially
+        head.next = tail;
+        tail.prev = head;
+    }
+
+    // Helper function to remove a node from the linked list
+    public void deleteNode(Node node) {
+        Node nextNode = node.next;
+        Node prevNode = node.prev;
+
+        // Connect the previous node to the next node, skipping the current one
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
+    }
+
+    // Helper function to insert a node right after the head
+    public void addAfterHead(Node node) {
+        Node nextNode = head.next;  // Get current first node
+
+        // Insert new node between head and nextNode
+        node.next = nextNode;
+        nextNode.prev = node;
+        head.next = node;
+        node.prev = head;
+    }
+
+    // Get value from cache for a given key
+    public int get(int key) {
+        // If key doesn't exist in cache, return -1
+        if (!map.containsKey(key)) {
+            return -1;
+        } else {
+            // Get the node from HashMap
+            Node node = map.get(key);
+            int value = node.value;
+
+            // Since this node is recently used, move it to the front
+            deleteNode(node);
+            addAfterHead(node);
+
+            return value;  // Return the value
+        }
+    }
+
+    // Insert or update a key-value pair in the cache
+    public void put(int key, int value) {
+        // Case 1: Key does NOT exist in cache
+        if (!map.containsKey(key)) {
+            // If cache is full, remove the least recently used node (before tail)
+            if (map.size() == capacity) {
+                map.remove(tail.prev.key);  // Remove it from HashMap
+                deleteNode(tail.prev);      // Remove it from linked list
+            }
+
+            // Create a new node and add it right after head (most recently used)
+            Node node = new Node(key, value);
+            addAfterHead(node);
+            map.put(key, node);
+        } 
+        // Case 2: Key already exists in cache
+        else {
+            // Update the value
+            Node node = map.get(key);
+            node.value = value;
+
+            // Move it to the front (most recently used)
+            deleteNode(node);
+            addAfterHead(node);
+        }
+    }
+}
+
+/**
+ * Example usage:
+ * 
+ * LRUCache obj = new LRUCache(capacity);
+ * int value = obj.get(key);
+ * obj.put(key, value);
+ */

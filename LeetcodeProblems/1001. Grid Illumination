@@ -1,0 +1,95 @@
+import java.util.*;
+
+class Solution {
+    // All 9 directions (8 surrounding cells + current cell)
+    // Each pair represents a direction: (rowChange, colChange)
+    int[][] dir = {
+        { 0, 1 },   // right
+        { 0, -1 },  // left
+        { 1, 0 },   // down
+        { -1, 0 },  // up
+        { 1, 1 },   // bottom-right diagonal
+        { -1, 1 },  // top-right diagonal
+        { -1, -1 }, // top-left diagonal
+        { 1, -1 },  // bottom-left diagonal
+        { 0, 0 }    // current cell itself
+    };
+
+    public int[] gridIllumination(int N, int[][] lamps, int[][] queries) {
+
+        // Output array (1 if illuminated, 0 if not)
+        int[] res = new int[queries.length];
+
+        // Maps to keep track of how many lamps affect each row, column, and diagonal
+        Map<Integer, Integer> row = new HashMap<>();
+        Map<Integer, Integer> col = new HashMap<>();
+        Map<Integer, Integer> d1 = new HashMap<>(); // diagonal 1 (r - c)
+        Map<Integer, Integer> d2 = new HashMap<>(); // diagonal 2 (r + c)
+
+        // Map to track which specific cells currently have a lamp turned on
+        // Using (N * r + c) as a unique key to represent cell (r, c)
+        Map<Integer, Boolean> cellNo = new HashMap<>();
+
+        // Step 1: Turn on all lamps and update counts
+        for (int i = 0; i < lamps.length; i++) {
+            int r = lamps[i][0];
+            int c = lamps[i][1];
+
+            // Only count this lamp if it hasn't been added before
+            if (!cellNo.containsKey(N * r + c)) {
+                // Increment counters for its row, column, and diagonals
+                row.put(r, row.getOrDefault(r, 0) + 1);
+                col.put(c, col.getOrDefault(c, 0) + 1);
+                d1.put(r - c, d1.getOrDefault(r - c, 0) + 1);
+                d2.put(r + c, d2.getOrDefault(r + c, 0) + 1);
+
+                // Mark this cell as containing an active lamp
+                cellNo.put(N * r + c, true);
+            }
+        }
+
+        // Step 2: Answer each query
+        for (int i = 0; i < queries.length; i++) {
+            int r = queries[i][0];
+            int c = queries[i][1];
+
+            // A cell is illuminated if:
+            // - There’s a lamp in the same row, or
+            // - There’s a lamp in the same column, or
+            // - There’s a lamp in the same diagonal (r - c or r + c)
+            if (row.getOrDefault(r, 0) > 0 ||
+                col.getOrDefault(c, 0) > 0 ||
+                d1.getOrDefault(r - c, 0) > 0 ||
+                d2.getOrDefault(r + c, 0) > 0) {
+                res[i] = 1; // Cell is illuminated
+            } else {
+                res[i] = 0; // Cell is dark
+            }
+
+            // Step 3: Turn off lamps in the current cell and its 8 neighbors
+            for (int[] d : dir) {
+                int r1 = r + d[0];
+                int c1 = c + d[1];
+
+                // Check if within grid bounds
+                if (r1 >= 0 && r1 < N && c1 >= 0 && c1 < N) {
+                    // Check if there is a lamp turned on at (r1, c1)
+                    if (cellNo.containsKey(N * r1 + c1) && cellNo.get(N * r1 + c1)) {
+
+                        // Decrease the counts for row, col, and diagonals
+                        row.put(r1, row.getOrDefault(r1, 1) - 1);
+                        col.put(c1, col.getOrDefault(c1, 1) - 1);
+                        d1.put(r1 - c1, d1.getOrDefault(r1 - c1, 1) - 1);
+                        d2.put(r1 + c1, d2.getOrDefault(r1 + c1, 1) - 1);
+
+                        // Mark the lamp as OFF
+                        cellNo.put(N * r1 + c1, false);
+                    }
+                }
+            }
+        }
+
+        // Return final results for all queries
+        return res;
+    }
+}
