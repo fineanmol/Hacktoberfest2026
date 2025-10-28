@@ -1,0 +1,45 @@
+from queue import Queue
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        m = len(grid)
+        n = len(grid[0])
+        q = Queue()
+        fresh = 0
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 2:
+                    q.put((i,j,0))
+                if grid[i][j] == 1:
+                    fresh += 1
+        
+        def isValid(i,j):
+            if i>=0 and j>=0 and i<m and j<n and grid[i][j] == 1:
+                return True
+            return False
+        
+        while (not q.empty()):
+            i,j,t = q.get()
+            ans = max(ans,t)
+
+            if isValid(i-1,j):
+                q.put((i-1,j,t+1))
+                grid[i-1][j] = 2
+                fresh -= 1
+                
+            if isValid(i+1,j):
+                q.put((i+1,j,t+1))
+                grid[i+1][j] = 2
+                fresh -= 1
+
+            if isValid(i,j-1):
+                q.put((i,j-1,t+1))
+                grid[i][j-1] = 2
+                fresh -= 1
+
+            if isValid(i,j+1):
+                q.put((i,j+1,t+1))
+                grid[i][j+1] = 2
+                fresh -= 1
+
+        return -1 if fresh != 0 else ans
