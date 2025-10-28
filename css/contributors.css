@@ -81,10 +81,10 @@ body {
   z-index: 1000;
   display: none;
   position: fixed;
-  bottom: 80px;
-  right: 40px;
-  width: 40px;
-  height: 40px;
+  bottom: 82px;
+  right: 42px;
+  width: 42px;
+  height: 42px;
   color: #000;
   background-color: var(--lightt);
   cursor: pointer;
@@ -120,7 +120,6 @@ body {
   position: relative;
 }
 .form-control,
-.form-control:focus,
 .from-control:active {
   text-indent: 30px;
   border: 1px solid var(--darkt) !important;
