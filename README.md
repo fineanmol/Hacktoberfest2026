@@ -176,3 +176,4 @@ Feel free to open an issue or contact the maintainers. We're here to help!
 Don't forget to ⭐ the repo if you find it helpful!
 
 Made with ❤️ for Hacktoberfest 2025
+Updated README for PR
