@@ -1,0 +1,39 @@
+class Solution {
+    public List<List<Integer>> criticalConnections(int n, List<List<Integer>> conn) {
+        List<List<Integer>> graph = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        int time[] = new int[1];
+        int []inTime = new int[n];
+        int []lowLink = new int[n];
+
+        Arrays.fill(inTime, -1);
+        Arrays.fill(lowLink, -1);
+
+        for(int i = 0; i < n; i++) graph.add(new ArrayList<>());
+        for(int i = 0; i < conn.size(); i++){
+            int from = conn.get(i).get(0);
+            int to = conn.get(i).get(1);
+            graph.get(from).add(to);
+            graph.get(to).add(from);
+        }
+
+        dfs(0, -1, time, inTime, lowLink, graph, res);
+        return res;
+    }
+
+    private void dfs(int u, int p, int []time, int []inTime, int []lowLink, List<List<Integer>> graph, List<List<Integer>> res){
+        inTime[u] = time[0];
+        lowLink[u] = time[0];
+        time[0]++;
+
+        for(int v : graph.get(u)){
+            if(v == p) continue;
+            if(inTime[v] == -1){
+                dfs(v, u, time, inTime, lowLink, graph, res);
+                lowLink[u] = Math.min(lowLink[u], lowLink[v]);
+                if(lowLink[v] > inTime[u]) res.add(Arrays.asList(u, v));
+            }
+            else lowLink[u] = Math.min(lowLink[u], inTime[v]);  
+        }
+    }
+}
