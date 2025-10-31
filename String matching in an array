@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<string> stringMatching(vector<string>& words) {
+    vector<string> result;
+    int n = words.size();
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i != j && words[j].find(words[i]) != string::npos) {
+                result.push_back(words[i]);
+                break; // no need to check further once found
+            }
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    vector<string> words1 = {"mass","as","hero","superhero"};
+    vector<string> words2 = {"leetcode","et","code"};
+    vector<string> words3 = {"blue","green","bu"};
+
+    auto printResult = [](vector<string> res) {
+        cout << "[";
+        for (int i = 0; i < res.size(); i++) {
+            cout << "\"" << res[i] << "\"";
+            if (i != res.size() - 1) cout << ",";
+        }
+        cout << "]\n";
+    };
+
+    cout << "Test 1: ";
+    printResult(stringMatching(words1));
+
+    cout << "Test 2: ";
+    printResult(stringMatching(words2));
+
+    cout << "Test 3: ";
+    printResult(stringMatching(words3));
+
+    return 0;
+}

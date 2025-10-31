@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> getSkyline(vector<vector<int>>& buildings) {
+        vector<pair<int, int>> heights;
+
+        // Split buildings into two events: start and end
+        for (auto& b : buildings) {
+            heights.push_back({b[0], -b[2]}); // start of building (negative height)
+            heights.push_back({b[1], b[2]});  // end of building (positive height)
+        }
+
+        // Sort events by x
+        // If x is same:
+        //   - process starts before ends
+        //   - higher buildings first for starts, lower buildings first for ends
+        sort(heights.begin(), heights.end());
+
+        multiset<int> activeHeights = {0}; // store current active building heights
+        int prevMax = 0;
+        vector<vector<int>> result;
+
+        for (auto& h : heights) {
+            int x = h.first, height = h.second;
+
+            if (height < 0) {
+                // Building start
+                activeHeights.insert(-height);
+            } else {
+                // Building end
+                activeHeights.erase(activeHeights.find(height));
+            }
+
+            int currMax = *activeHeights.rbegin();
+            if (currMax != prevMax) {
+                result.push_back({x, currMax});
+                prevMax = currMax;
+            }
+        }
+
+        return result;
+    }
+};
+
+// Example test
+int main() {
+    Solution sol;
+    vector<vector<int>> buildings = {{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}};
+    
+    vector<vector<int>> res = sol.getSkyline(buildings);
+    
+    cout << "[";
+    for (auto& point : res) {
+        cout << "[" << point[0] << "," << point[1] << "]";
+        if (&point != &res.back()) cout << ",";
+    }
+    cout << "]" << endl;
+
+    return 0;
+}

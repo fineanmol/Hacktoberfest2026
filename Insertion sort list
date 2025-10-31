@@ -1,0 +1,82 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        if (!head || !head->next) return head; // Base case
+
+        // Dummy node before the sorted part of the list
+        ListNode* dummy = new ListNode(0);
+        ListNode* curr = head;
+
+        while (curr) {
+            ListNode* nextNode = curr->next; // Save next node
+            ListNode* prev = dummy;
+
+            // Find the right place to insert current node
+            while (prev->next && prev->next->val < curr->val) {
+                prev = prev->next;
+            }
+
+            // Insert curr between prev and prev->next
+            curr->next = prev->next;
+            prev->next = curr;
+
+            // Move to the next node
+            curr = nextNode;
+        }
+
+        return dummy->next;
+    }
+};
+
+// Helper functions for testing
+ListNode* createList(vector<int> vals) {
+    ListNode* head = nullptr;
+    ListNode* tail = nullptr;
+    for (int v : vals) {
+        if (!head) head = tail = new ListNode(v);
+        else {
+            tail->next = new ListNode(v);
+            tail = tail->next;
+        }
+    }
+    return head;
+}
+
+void printList(ListNode* head) {
+    while (head) {
+        cout << head->val;
+        if (head->next) cout << " -> ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    Solution sol;
+
+    // Example test
+    vector<int> vals = {4, 2, 1, 3};
+    ListNode* head = createList(vals);
+
+    cout << "Original List: ";
+    printList(head);
+
+    head = sol.insertionSortList(head);
+
+    cout << "Sorted List: ";
+    printList(head);
+
+    return 0;
+}
