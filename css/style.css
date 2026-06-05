@@ -17,7 +17,7 @@ body {
 .container {
   width: 28rem;
   height: 34rem;
-  background-color: rgb(110, 100, 100);
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -48,7 +48,7 @@ h4 {
 }
 .css {
   background-color: blue;
-  color: grey;
+  color:gray;
   text-align: center;
   padding: 1.25rem 2.5rem;
   width: 21.87rem;
