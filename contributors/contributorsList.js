@@ -4,7 +4,7 @@ contributors = [
     fullname: "Anmol Agarwal",
     username: "https://github.com/fineanmol",
   },
-
+  
   {
     id: 2,
     fullname: "Amitava Mitra",
@@ -1819,6 +1819,7 @@ contributors = [
     username: "https://github.com/sabin-thapa",
   },
   {
+
     id: 373,
     fullname: "Anurag Pandey",
     username: "https://github.com/eagleanurag/",
@@ -1968,15 +1969,22 @@ contributors = [
     fullname: "Shubham Rawat",
     username: "https://github.com/shubhamrawat090",
   },
-  {
-    id: 390,
+  {  id: 390,
     fullname: "Shivam Sisodia",
     username: "https://github.com/shivamsisodia07",
   },
-
+  {
+    id: 390,
+    fullname: "suraj keshari",
+    username: "https://github.com/surajkeshari"
+  },
+  {
+    id: 391,
+    fullname: "Rohan Das",
+    username: "https://github.com/rohan26062001"
+  },
   {
     id: 410,
-
     fullname: "Vjelson Tuazonl",
     username: "https://github.com/VJelson",
   },
@@ -1985,13 +1993,11 @@ contributors = [
     fullname: "Isnani",
     username: "https://github.com/Isnani25",
   },
-
   {
     id: 441,
     fullname: "Parth Panjwani",
     username: "https://github.com/Parth-Panjwani",
   },
-
   {
     id: 412,
     fullname: "Garima Jain",
@@ -2017,12 +2023,10 @@ contributors = [
     fullname: "Alejandro Armenta",
     username: "https://github.com/alexanderNWO",
   },
-  {
     id: 417,
     fullname: "Krish Katyal",
     username: "https://github.com/krishkatyal",
   },
-
   {
     id: 418,
     fullname: "Arshpreet Singh Bedi",
@@ -2030,38 +2034,7 @@ contributors = [
   },
   {
     id: 419,
-    fullname: "Amit Kumar",
-    username: "https://github.com/amit-kumar",
-  },
-  {
-    id: 420,
-    fullname: "Keshav R Karanth",
-    username: "https://github.com/keshavrkaranth",
-  },
-
-  {
-    id: 421,
-    fullname: "Gautami SInha",
-    username: "https://github.com/amnotcreative",
-  },
-  {
-    id: 422,
-    fullname: "Evgeny Skorlov",
-    username: "https://github.com/ru-asdx",
-  },
-  {
-    id: 423,
-    fullname: "Mohit Yadav",
-    username: "https://github.com/ymohit1603",
-  },
-  {
-    id: 424,
-    fullname: "Sumit Br",
-    username: "https://github.com/SumitBr",
-  },
-  {
-    id: 425,
-    fullname: "Auro S.",
-    username: "https://github.com/aurocodes",
+    fullname: "Damian Teske",
+    username: "https://github.com/DamianT7",
   },
 ];
