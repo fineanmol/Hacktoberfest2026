@@ -2001,12 +2001,9 @@ contributors = [
   },
   {
     id: 417,
-    fullname: "Krish Katyal",
-    username: "https://github.com/krishkatyal",
+    fullname: "Anish Goyal",
+    username: "https://github.com/Anish-Goyal",
   },
-  {
-    id: 418,
-    fullname: "Amit Das",
-    username: "https://github.com/das-amit",
-  },
+
 ];
+ 
