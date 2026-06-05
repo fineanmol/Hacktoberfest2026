@@ -2030,10 +2030,10 @@ contributors = [
     username: "https://github.com/avibedi1768",
   },
     
-  {
+    {
     id: 419,
-    fullname: "Nathanael Berliano",
-    username: "https://github.com/aodreamer",
+    fullname: "Hanshika Mehta",
+    username: "https://github.com/Hanshika-Mehta",
   },
 
 
