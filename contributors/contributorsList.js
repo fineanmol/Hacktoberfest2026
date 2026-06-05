@@ -1951,8 +1951,7 @@ contributors = [
   {
     id: 387,
     fullname: "Vaibahv Aswal",
-    username: "https://github.com/ShrutiMishra-2005"
-
+    username: "https://github.com/ShrutiMishra-2005",
   },
   {
     id: 388,
@@ -1964,23 +1963,14 @@ contributors = [
     fullname: "Shubham Rawat",
     username: "https://github.com/shubhamrawat090",
   },
-
   {
     id: 410,
-
-    fullname: "Vjelson Tuazonl",
-    username: "https://github.com/VJelson"
-
+    fullname: "Isnani",
+    username: "https://github.com/Isnani25",
   },
   {
     id: 411,
-      fullname: "Isnani",
-      username: "https://github.com/Isnani25",
+    fullname: "Ben Orlowski",
+    username: "https://githubv.com/pick1100",
   },
-  {
-    id: 412,
-      fullname: "Ankit sharma",
-      username: "https://github.com/anks2336",
-  },
-
 ];
