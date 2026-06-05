@@ -4,6 +4,7 @@ contributors = [
     fullname: "Anmol Agarwal",
     username: "https://github.com/fineanmol",
   },
+  
   {
     id: 2,
     fullname: "Amitava Mitra",
@@ -1626,13 +1627,11 @@ contributors = [
     fullname: "Dicky",
     username: "https://github.com/dickytrianza",
   },
-
   {
     id: 326,
     fullname: "Srinjoy Pati",
     username: "https://github.com/srinjoy-26",
   },
-
   {
     id: 327,
     fullname: "Rajpreet Kaur",
@@ -1644,7 +1643,6 @@ contributors = [
     fullname: "Bhumit",
     username: "https://github.com/BhumitRohilla",
   },
-
   {
     id: 329,
     fullname: "d-coder111",
@@ -1818,6 +1816,12 @@ contributors = [
     username: "https://github.com/sabin-thapa",
   },
   {
+
+    id: 373,
+    fullname: "Anurag Pandey",
+    username: "https://github.com/eagleanurag/",
+  },
+  {
     id: 361,
     fullname: "Kenny",
     username: "https://github.com/KennyAwesome",
@@ -1922,7 +1926,6 @@ contributors = [
     fullname: "Rajat Singh",
     username: "https://github.com/Rajat009-Ra1",
   },
-
   {
     id: 382,
     fullname: "Akarshit Batra",
@@ -1961,8 +1964,12 @@ contributors = [
     id: 389,
     fullname: "Shubham Rawat",
     username: "https://github.com/shubhamrawat090",
-  },
 
+  },
+  {  id: 390,
+    fullname: "Shivam Sisodia",
+    username: "https://github.com/shivamsisodia07",
+  },
   {
     id: 410,
 
@@ -1973,6 +1980,11 @@ contributors = [
     id: 411,
     fullname: "Isnani",
     username: "https://github.com/Isnani25",
+  },
+  {
+    id: 441,
+    fullname: "Parth Panjwani",
+    username: "https://github.com/Parth-Panjwani",
   },
   {
     id: 412,
@@ -2006,7 +2018,12 @@ contributors = [
   },
   {
     id: 418,
-    fullname: "Felipe Andrada",
-    username: "https://github.com/felipeands"
-  }
+    fullname: "Arshpreet Singh Bedi",
+    username: "https://github.com/avibedi1768",
+  },
+  {
+    id: 419,
+    fullname: "Muili Kazeem",
+    username: "https://github.com/Muili-Kazeem",
+  },
 ];
