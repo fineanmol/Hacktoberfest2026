@@ -1866,8 +1866,8 @@ export const contributors = [
       "username": "https://github.com/prajwalkulkarni"
     },
     {
-        "id":366,
-        "fullname":"Shreyas Kamath",
-        "username":"https://github.com/shreyas2711"
-    },
+        "id": 366,
+        "fullname": "Aasif Ali",
+        "username": "https://github.com/Asif98209"
+    }
 ]
