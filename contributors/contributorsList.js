@@ -1964,10 +1964,22 @@ contributors = [
     id: 390,
     fullname: "suraj keshari",
     username: "https://github.com/surajkeshari"
+
   },
   {
     id: 391,
-    fullname: "Dwi Candra Permana",
-    username: "https://github.com/dwichan0905"
+    fullname: "Rohan Das",
+    username: "https://github.com/rohan26062001"
+
+  },
+  {
+    id: 392,
+    fullname: "Benjamin Norman",
+    username: "https://github.com/BenjaminN117",
+  },
+  {
+    id: 393,
+    fullname: "Akash Singhal",
+    username: "https://github.com/Akashsinghal1234",
   }
 ];
