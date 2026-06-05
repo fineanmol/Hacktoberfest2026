@@ -19,8 +19,13 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const pr = context.payload.pull_request;
-            if (pr.mergeable !== false) {
-              core.info(`PR #${pr.number} mergeable=${pr.mergeable} — no conflict hint needed`);
+            const { data: fresh } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+            });
+            if (fresh.mergeable !== false) {
+              core.info(`PR #${pr.number} mergeable=${fresh.mergeable} — no conflict hint needed`);
               return;
             }
 
