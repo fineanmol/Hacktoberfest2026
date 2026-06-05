@@ -2019,7 +2019,6 @@ contributors = [
     fullname: "Alejandro Armenta",
     username: "https://github.com/alexanderNWO",
   },
-  {
     id: 417,
     fullname: "Krish Katyal",
     username: "https://github.com/krishkatyal",
@@ -2037,8 +2036,8 @@ contributors = [
   },
   {
     id:420,
-    fullname:"Auro S.",
-    username:"https://github.com/aurocodes",
-  }
+    fullname: "Avaneesh Srivastava",
+    username: "https://github.com/Avaneesh-dev",
+  },
 
 ];
