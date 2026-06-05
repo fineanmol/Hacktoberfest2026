@@ -1842,7 +1842,7 @@ contributors = [
   },
   {
     id:368,
-    fullname: "Atmani Ali",
-    username: "https://github.com/atmaniali",
+    fullname: "Sandeep Patel",
+    username: "https://github.com/Sandeep-1507",
   },
 ];
