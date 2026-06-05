@@ -4,7 +4,6 @@ contributors = [
     fullname: "Anmol Agarwal",
     username: "https://github.com/fineanmol",
   },
-  
   {
     id: 2,
     fullname: "Amitava Mitra",
@@ -1819,12 +1818,6 @@ contributors = [
     username: "https://github.com/sabin-thapa",
   },
   {
-
-    id: 373,
-    fullname: "Anurag Pandey",
-    username: "https://github.com/eagleanurag/",
-  },
-  {
     id: 361,
     fullname: "Kenny",
     username: "https://github.com/KennyAwesome",
@@ -1937,6 +1930,7 @@ contributors = [
   },
   {
     id: 383,
+
     fullname: "Abel Aditya Philipose",
     username: "https://github.com/AbelAditya",
   },
@@ -1958,89 +1952,26 @@ contributors = [
     id: 387,
     fullname: "Vaibahv Aswal",
     username: "https://github.com/ShrutiMishra-2005"
-  },
-  {
+  },{
     id: 388,
     fullname: "Samarjeet Singh Gandhi",
     username: "https://github.com/gandhi25samar",
-  },
-  {
+  },{
     id: 389,
     fullname: "Shubham Rawat",
     username: "https://github.com/shubhamrawat090",
-
-  },
-  {  id: 390,
-    fullname: "Shivam Sisodia",
-    username: "https://github.com/shivamsisodia07",
-  },
-  {
+  },{
     id: 410,
     fullname: "Vjelson Tuazonl",
     username: "https://github.com/VJelson"
-  },
-  {
+  },{
     id: 411,
     fullname: "Isnani",
     username: "https://github.com/Isnani25",
-  },
-
-    {
-    id: 441,
-    fullname: "Parth Panjwani",
-    username: "https://github.com/Parth-Panjwani",
-  },
-
-
-  {
-    id: 412,
-    fullname: "Ripunjay Singh",
-    username: "https://github.com/rpj09",
-  },
-    id: 413,
-    fullname: "Garima Jain",
-    username: "https://github.com/garimajain12",
-  },
-  {
-    id: 414,
-    fullname: "Niraj Pradhan",
-    username: "https://github.com/nirajpdn",
-  },
-  {
-    id: 415,
-    fullname: "David Gillick",
-    username: "https://github.com/VertexAssassins",
-  },
-  {
-    id: 416,
-    fullname: "Vatsal K",
-    username: "https://github.com/vatsalkudecha",
-  },
-  {
-    id: 417,
-    fullname: "Alejandro Armenta",
-    username: "https://github.com/alexanderNWO",
-  },
-  {
-    id: 418,
-    fullname: "Krish Katyal",
-    username: "https://github.com/krishkatyal",
-  },
-
-  {
-    id: 419,
-    fullname: "Arshpreet Singh Bedi",
-    username: "https://github.com/avibedi1768",
-  },
-  {
-    id: 420,
-    fullname: "Amit Kumar",
-    username: "https://github.com/amit-kumar",
-  },
-  {
-    id:420,
-    fullname:"Auro S.",
-    username:"https://github.com/aurocodes",
+  },{
+    id:412,
+    fullname: "Diego Perez Perez",
+    username: "https://github.com/CodeBreaker518"
   }
 
 ];
