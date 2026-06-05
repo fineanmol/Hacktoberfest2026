@@ -1892,7 +1892,7 @@ contributors = [
   },
   {
     id: 373,
-    fullname: "Sparsh Goel",
-    username: "https://github.com/SPARSH1608",
+    fullname: "Arnav",
+    username: "https://github.com/arnav0929/",
   },
 ];
