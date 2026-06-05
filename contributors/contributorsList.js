@@ -4,6 +4,7 @@ contributors = [
     fullname: "Anmol Agarwal",
     username: "https://github.com/fineanmol",
   },
+  
   {
     id: 2,
     fullname: "Amitava Mitra",
@@ -1818,6 +1819,12 @@ contributors = [
     username: "https://github.com/sabin-thapa",
   },
   {
+
+    id: 373,
+    fullname: "Anurag Pandey",
+    username: "https://github.com/eagleanurag/",
+  },
+  {
     id: 361,
     fullname: "Kenny",
     username: "https://github.com/KennyAwesome",
@@ -1961,6 +1968,11 @@ contributors = [
     id: 389,
     fullname: "Shubham Rawat",
     username: "https://github.com/shubhamrawat090",
+
+  },
+  {  id: 390,
+    fullname: "Shivam Sisodia",
+    username: "https://github.com/shivamsisodia07",
   },
 
   {
@@ -1974,6 +1986,14 @@ contributors = [
     fullname: "Isnani",
     username: "https://github.com/Isnani25",
   },
+
+    {
+    id: 441,
+    fullname: "Parth Panjwani",
+    username: "https://github.com/Parth-Panjwani",
+  },
+
+
   {
     id: 412,
     fullname: "Garima Jain",
@@ -1999,14 +2019,16 @@ contributors = [
     fullname: "Alejandro Armenta",
     username: "https://github.com/alexanderNWO",
   },
-  
     id: 417,
-    fullname: "Bhairu Tribrid",
-    username: "https://github.com/BhairuTribrid",
-  }
-];
- id: 415,
     fullname: "Krish Katyal",
     username: "https://github.com/krishkatyal",
   },
+
+  {
+    id: 418,
+    fullname: "Arshpreet Singh Bedi",
+    username: "https://github.com/avibedi1768",
+  },
+
+
 ];
