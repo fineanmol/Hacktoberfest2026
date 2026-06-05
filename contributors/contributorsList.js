@@ -1892,7 +1892,7 @@ contributors = [
   },
   {
     id: 373,
-    fullname: "Satwik Jain",
-    username: "satwik104",
+    fullname: "Sameer Aggrawal",
+    username: "https://github.com/sameer-19",
   },
 ];
