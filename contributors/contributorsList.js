@@ -1930,7 +1930,6 @@ contributors = [
   },
   {
     id: 383,
-
     fullname: "Abel Aditya Philipose",
     username: "https://github.com/AbelAditya",
   },
@@ -1963,14 +1962,51 @@ contributors = [
     fullname: "Shubham Rawat",
     username: "https://github.com/shubhamrawat090",
   },
+
   {
     id: 410,
+
+    fullname: "Vjelson Tuazonl",
+    username: "https://github.com/VJelson",
+  },
+  {
+    id: 411,
     fullname: "Isnani",
     username: "https://github.com/Isnani25",
   },
   {
     id: 412,
-    fullname: "Pedro Filipe",
-    username: "https://github.com/xpecex",
+    fullname: "Garima Jain",
+    username: "https://github.com/garimajain12",
   },
-];
+  {
+    id: 413,
+    fullname: "Niraj Pradhan",
+    username: "https://github.com/nirajpdn",
+  },
+  {
+    id: 414,
+    fullname: "David Gillick",
+    username: "https://github.com/VertexAssassins",
+  },
+  {
+    id: 415,
+    fullname: "Vatsal K",
+    username: "https://github.com/vatsalkudecha",
+  },
+  {
+    id: 416,
+    fullname: "Alejandro Armenta",
+    username: "https://github.com/alexanderNWO",
+  },
+  {
+    id: 417,
+    fullname: "Krish Katyal",
+    username: "https://github.com/krishkatyal",
+  },
+  {
+    id:418,
+    fullname: "Kushagra Bansal",
+    username: "https://github.com/kushagra-bansal"
+  }
+]
