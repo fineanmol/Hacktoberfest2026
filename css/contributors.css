@@ -15,7 +15,7 @@
   --black: white;
   --gray: black;
   --text: rgb(242, 244, 251);
-  --box: rgb(61 63 73);
+  --box: rgb(61 62 73);
   --box-hover: rgb(57 148 255);
   --nav-color: #1e1e28;
   --footer-color: #ededed;
@@ -83,7 +83,7 @@ body {
   z-index: 1000;
   display: none;
   position: fixed;
-  bottom: 20px;
+  bottom: 80px;
   right: 40px;
   width: 40px;
   height: 40px;
@@ -130,13 +130,30 @@ body {
   background: var(--darkbg);
   outline: 0;
   color: #eee;
-  width: 300px;
+  width: 20rem;
   accent-color: var(--lightt);
   box-shadow: none;
 }
+@media (max-width: 768px) {
+  .form-control,
+  .form-control:focus,
+  .from-control:active {
+    width: 14rem;
+  }
+}
+/* To Make Input field transparent during auto-complete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
+}
+
 .light .form-control {
   background-color: #fff;
   border-color: #eee;
+  color: #000;
   outline: 0;
   box-shadow: none;
 }
@@ -159,6 +176,7 @@ a:hover {
   cursor: default;
   font-size: 2rem;
   font-family: "Special Elite", cursive;
+  transition: all 1s;
 }
 .heading:hover {
   color: #fe0c43;
@@ -190,19 +208,6 @@ a:hover {
   letter-spacing: 0;
   transition: letter-spacing 0.5s;
 }
-
-@media (max-width: 480px) {
-  .container > div:nth-child(3) {
-    margin-top: -3rem;
-  }
-  .container > div:nth-child(4) {
-    flex-direction: column;
-    row-gap: 0.75rem;
-    margin: 0.75rem 0 1rem;
-    align-items: flex-start !important;
-  }
-}
-
 @media (min-width: 768px) {
   .box {
     display: flex;
@@ -226,10 +231,10 @@ a:hover {
 }
 .box-item:hover {
   size: 30cm;
-  color: navy;
+  color: rgb(255, 255, 255);
   letter-spacing: 2px;
   font-weight: 700;
-  transform: rotate(3deg);
+  /* transform: rotate(3deg); */
   transition: left 1s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .box-item::before {
@@ -604,4 +609,29 @@ body {
 }
 #myBtn:hover {
   background-color: #555;
+}
+
+#animation {
+  transition: all 1s;
+}
+
+#animation:hover {
+  transform: scale(1.1);
+}
+.box #loadMore u {
+  text-decoration: none;
+}
+.box #loadMore {
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: black;
+  color: whitesmoke;
+  border: 1px solid green;
+  transition: ease-out 0.4s;
+}
+.box #loadMore:hover {
+  color: black;
+  font-weight: 600;
+  box-shadow: inset 120px 0 0 0 #fe0c43;
 }
