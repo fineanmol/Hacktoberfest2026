@@ -1,0 +1,16 @@
+body {
+  margin: 50px auto;
+  max-width: 700px;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #33333;
+  padding: 0 34px;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 45px;
+  line-height: 1.2;
+  font-style:bold;
+}
