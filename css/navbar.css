@@ -6,11 +6,12 @@ nav{
 }
 .navbar-nav{
   width:100%;
-  color: #dc143c;
+  display: flex;
+  justify-content: space-between;
 }
 .navbar-brand{
   line-height:1;
-  margin-right:1.5rem
+  margin-right:1rem
 }
 .navbar-brand svg{
   height:37px;
