@@ -6,7 +6,7 @@
     /* height: 100px; */
     background: linear-gradient(to left, #FF0844, #FF4563);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    color: wheat;
+    color: blue;
     text-align: center;
     z-index: 1000;
 
@@ -137,12 +137,6 @@ footer {
 
 .socials a:hover i {
   color: aqua;
-}
-.socials a:hover.insta i {
-  color: rgb(190, 19, 110);
-}
-.socials a:hover.yt i {
-  color: rgb(190, 19, 19);
 }
 
 .footer-bottom {
