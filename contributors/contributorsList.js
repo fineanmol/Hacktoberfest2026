@@ -1974,6 +1974,7 @@ contributors = [
     fullname: "Shivam Sisodia",
     username: "https://github.com/shivamsisodia07",
   },
+
   {
     id: 410,
 
@@ -1991,6 +1992,8 @@ contributors = [
     fullname: "Parth Panjwani",
     username: "https://github.com/Parth-Panjwani",
   },
+
+
   {
     id: 412,
     fullname: "Garima Jain",
@@ -2021,6 +2024,7 @@ contributors = [
     fullname: "Krish Katyal",
     username: "https://github.com/krishkatyal",
   },
+
   {
     id: 418,
     fullname: "Arshpreet Singh Bedi",
@@ -2028,7 +2032,13 @@ contributors = [
   },
   {
     id: 419,
-    fullname: "Andrej Saule",
-    username: "https://github.com/ajsaule"
+    fullname: "Amit Kumar",
+    username: "https://github.com/amit-kumar",
+  },
+  {
+    id:420,
+    fullname:"Auro S.",
+    username:"https://github.com/aurocodes",
   }
+
 ];
