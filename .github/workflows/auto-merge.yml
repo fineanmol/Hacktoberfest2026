@@ -1,0 +1,16 @@
+# Disabled: PRs are merged by maintainers / automation scripts with conflict resolution.
+name: Auto-Merge PRs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  auto_merge:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Auto-merge disabled — use maintainer review or merge scripts."

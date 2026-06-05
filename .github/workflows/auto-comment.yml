@@ -1,0 +1,83 @@
+name: Auto Comment
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+  issues:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  star-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on pull request
+        if: github.event_name == 'pull_request_target'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.AUTOMERGE_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+            const action = context.payload.action;
+            const sender = context.payload.sender.login;
+
+            const maintainerBots = ['fineanmol', 'github-actions[bot]'];
+            if (action === 'synchronize' && maintainerBots.includes(sender)) {
+              core.info(`Skipping star reminder for sync by ${sender}`);
+              return;
+            }
+
+            const marker = '<!-- hacktoberfest-star-reminder -->';
+            const body = [
+              marker,
+              `@${author} Please Star ⭐️ the repo to earn **hacktober-accepted** label for the event.`,
+            ].join('\n');
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              per_page: 100,
+            });
+
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+            if (existing) {
+              if (action === 'synchronize') {
+                core.info('Star reminder already posted — skipping duplicate on sync');
+                return;
+              }
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+              return;
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body,
+            });
+
+      - name: Comment on new issue
+        if: github.event_name == 'issues'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.AUTOMERGE_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const author = issue.user.login;
+            const body = `@${author} Please Star ⭐️ the repo to earn **hacktober-accepted** label for the event.`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body,
+            });
