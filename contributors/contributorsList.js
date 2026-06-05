@@ -1890,7 +1890,7 @@ contributors = [
     fullname: "Shagufta Iqbal",
     username: "https://github.com/Shagufta08",
   },
-  
+  {
     id:376,
     fullname: "Sauvic P Choudhury",
     username: "https://github.com/Sauvic016",
@@ -1939,12 +1939,26 @@ contributors = [
     id:385,
     fullname: "Philip Mello",
     username: "https://github.com/PhilipMello"
-  }
-  {
-    id: 386,
-    fullname: "Roshan C",
-    username: "https://github.com/Roshano2",
   },
-
+  {
+    id:386,
+    fullname: "Abhash Chakraborty",
+    username: "https://github.com/Abhash-Chakraborty"
+  },
+  {
+    id:387,
+    fullname: "Navneet Raj",
+    username: "https://github.com/2nav"
+  },
+  {
+    id: 388,
+    fullname: "Abhishek Anand",
+    username: "https://github.com/picturepatch07"
+  },
+  {
+    id: 389,
+    fullname: "Devansh Kumar",
+    username: "https://github.com/evans129"
+  }
 
 ];
