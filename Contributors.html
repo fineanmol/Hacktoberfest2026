@@ -43,11 +43,16 @@
   <link rel="stylesheet" href="css/explosion.css">
   <link rel="stylesheet" href="./css/terminal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+  <script src="https://kit.fontawesome.com/d9f7ec7b29.js" crossorigin="anonymous"></script>
   <title>Hacktoberfest 2026 - Contributors</title>
 
 </head>
 
 <body>
+
+  <!-- Back-to-top Button -->
+  <button id="back-to-top-btn"><i class="fas fa-angle-double-up"></i></button>
+
   <!--
       __  __              __    __          __                 ____             __
     / / / /____ _ _____ / /__ / /_ ____   / /_   ___   _____ / __/___   _____ / /_
@@ -85,10 +90,10 @@
   </nav>
   <div class="content">
     <div class="container">
-      <span class="heading">CONTRIBUTERS </span>
+      <span class="heading">CONTRIBUTORS </span>
 
       <div class="heart"></div>
-      <label class="theme-switch" for="checkbox">
+      <!-- <label class="theme-switch" for="checkbox">
 
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun"
           viewBox="0 0 16 16">
@@ -103,7 +108,11 @@
         <input type="checkbox" class="checkbox" id="checkbox" />
 
         <div class="slider round"></div>
-      </label>
+      </label> -->
+            <div class="tdnn">
+        <div class="moon">
+        </div>
+      </div>
       <p class=" rubberBand delay-4s">Add yourself to the list if you contribute.</p>
       <hr style="width:80%">
     </div>
@@ -349,7 +358,9 @@
       <a class="box-item" href="https://github.com/NEELAKANTAGOUDAPATIL"><span>NEELAKANTA GOUDA PATIL</span></a>
       <a class="box-item" href="https://github.com/shashishekhar11"><span>shashishekhar11</span></a>
       <a class="box-item" href="https://github.com/H-M-Noman123"><span>H-M-Noman123</span></a>
-      <a class="box-item" href="https://github.com/Danushan99"><span>Danushan</span></a>
+      <a class="box-item" href="https://github.com/barunipriyats"><span>Baruni Priya T S</span></a>
+      <a class="box-item" href="https://github.com/anmolg84"><span>Anmol Gupta</span></a>
+      <a class="box-item" href="https://github.com/Paddlepop25"><span>Linda Hsu</span></a>
 
 
 
@@ -415,6 +426,54 @@
       }, 750 * (idx + 1))
     });
 
+
+    /* Back-to-top button functionality */
+  const backToTopButton = document.querySelector("#back-to-top-btn");
+
+  window.addEventListener("scroll", scrollFunction);
+  function scrollFunction() {
+  if (window.pageYOffset > 300) { // Show backToTopButton
+      if(!backToTopButton.classList.contains("btnEntrance")) {
+      backToTopButton.classList.remove("btnExit");
+      backToTopButton.classList.add("btnEntrance");
+      backToTopButton.style.display = "block";
+      }
+  }
+  else { // Hide backToTopButton
+      if(backToTopButton.classList.contains("btnEntrance")) {
+      backToTopButton.classList.remove("btnEntrance");
+      backToTopButton.classList.add("btnExit");
+      setTimeout(function() {
+          backToTopButton.style.display = "none";
+      }, 250);
+      }
+  }
+  }
+
+  backToTopButton.addEventListener("click", smoothScrollBackToTop);
+
+  function smoothScrollBackToTop() {
+  const targetPosition = 0;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  const duration = 750;
+  let start = null;
+  window.requestAnimationFrame(step);
+  function step(timestamp) {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+      if (progress < duration) window.requestAnimationFrame(step);
+  }
+  }
+
+  function easeInOutCubic(t, b, c, d) {
+  t /= d/2;
+  if (t < 1) return c/2*t*t*t + b;
+  t -= 2;
+  return c/2*(t*t*t + 2) + b;
+  };
+
   </script>
   <script src="/scripts/scroll.js"></script>
 
@@ -422,6 +481,14 @@
   <div class="container">
     <div id="stats" style="margin-top: 1rem;"></div>
   </div>
+  <script>
+    $('.tdnn').click(function () {
+      $("body").toggleClass('light');
+      $(".moon").toggleClass('sun');
+      $(".tdnn").toggleClass('day');
+    });
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </body>
 
 </html>
