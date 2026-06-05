@@ -1951,14 +1951,18 @@ contributors = [
     username: "https://github.com/2nav"
   },
   {
-    id: 388,
-    fullname: "Abhishek Anand",
-    username: "https://github.com/picturepatch07"
-  },
+    id:388,
+    fullname: "Mridul Goel",
+    username: "https://github.com/mridulgoel03"
+  }
+  
+
+   {
   {
-    id: 389,
-    fullname: "Devansh Kumar",
-    username: "https://github.com/evans129"
+
+    id:389,
+    fullname: "Divjot Singh",
+    username: "https://github.com/divjot121"
   }
 
 ];
