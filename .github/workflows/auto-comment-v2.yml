@@ -1,0 +1,16 @@
+# Disabled: duplicate of auto-comment.yml (old version referenced missing package.json/yarn build).
+name: Auto Commentv2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  pull-requests: read
+  issues: read
+
+jobs:
+  disabled:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Use .github/workflows/auto-comment.yml instead."

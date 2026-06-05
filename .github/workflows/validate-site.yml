@@ -1,0 +1,40 @@
+name: Validate site on PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    if: github.repository == 'fineanmol/Hacktoberfest2025'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check core site files
+        run: |
+          set -euo pipefail
+          for f in index.html .nojekyll; do
+            test -f "$f" || { echo "Missing required file: $f"; exit 1; }
+          done
+          echo "Core site files present."
+
+      - name: Validate contributor JS syntax (changed files only)
+        run: |
+          set -euo pipefail
+          git fetch origin "${{ github.event.pull_request.base.ref }}"
+          mapfile -t FILES < <(
+            git diff --name-only "origin/${{ github.event.pull_request.base.ref }}...HEAD" \
+              | grep -E '^contributors/.*\.js$' || true
+          )
+          if [ "${#FILES[@]}" -eq 0 ]; then
+            echo "No contributor JS changes — skip syntax check."
+            exit 0
+          fi
+          node --check "${FILES[@]}"

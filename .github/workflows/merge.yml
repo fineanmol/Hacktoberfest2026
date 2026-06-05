@@ -1,0 +1,16 @@
+# Disabled: legacy reitermarkus/automerge on every push/schedule fought maintainer merge workers.
+name: Automerge
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  automerge:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Legacy automerge disabled — PRs are merged via maintainer automation."
