@@ -1953,7 +1953,7 @@ contributors = [
     fullname: "Vaibahv Aswal",
     username: "https://github.com/ShrutiMishra-2005"
 
-  },
+  }
   {
     id: 388,
     fullname: "Samarjeet Singh Gandhi",
@@ -1976,13 +1976,11 @@ id: 411,
     fullname: "Isnani",
     username: "https://github.com/Isnani25",
   },
-
+  
+  
   {
-    id: 412,
-
-    fullname: "Ruteswar Senapati",
-    username: "https://github.com/Ruteswar"
-
-  }
-
+    id:412,
+    fullname: "Dhruva S Kashyap",
+    useername: "TheViralClovers",
+  },
 ];
