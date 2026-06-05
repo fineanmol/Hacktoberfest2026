@@ -1731,13 +1731,13 @@ export const contributors = [
     },
     {
 
-        "id": 347,
+        "id": 348,
         "fullname": "Dicky",
         "username": "https://github.com/dickytrianza"
     },
 
     {
-        "id": 348,
+        "id": 347,
         "fullname": "Srinjoy Pati",
         "username": "https://github.com/srinjoy-26"
     },
@@ -1750,125 +1750,124 @@ export const contributors = [
 
 
     {
-        "id": 350,
+        "id": 349,
         "fullname": "Bhumit",
         "username": "https://github.com/BhumitRohilla"
     },
 
     {
 
-        "id": 351,
+        "id": 350,
         "fullname": "d-coder111",
         "username": "https://github.com/d-coder111"
     },
     {
 
-        "id": 352,
+        "id": 351,
         "fullname": "ritam77",
         "username": "https://github.com/ritam77"
     },
 
     {
 
-        "id": 353,
+        "id": 351,
         "fullname": "Arpit Ujjwal",
         "username": "https://github.com/ArpitUjjwal"
     },
     {
 
-        "id": 354,
+        "id": 352,
         "fullname": "Amisha Aggarwal",
         "username": "https://github.com/amishaagg"
     },
     {
 
-        "id": 355,
+        "id": 353,
         "fullname": "Rohit Singh",
         "username": "https://github.com/rohitsingh2k"
     },
     {
-        "id": 356,
+        "id": 354,
         "fullname": "Soumalya Mukherjee",
         "username": "https://github.com/SoumalyaM"
     },
     {
-        "id": 357,
+        "id": 355,
         "fullname": "Smit Shah",
         "username": "https://github,com/smit-sms"
     },
     {
-        "id": 358,
+        "id": 356,
         "fullname": "Kanishka Srivastava",
         "username": "https://github.com/kanishkasrivastava"
     },
     {
-        "id": 359,
+        "id": 360,
         "fullname": "Kriti Singh",
         "username": "https://github.com/slayk"
     },
     {
-        "id": 360,
+        "id": 356,
         "fullname": "Shivam",
         "username": "https://github.com/shivamRamani"
     },
     {
 
-        "id": 361,
+        "id": 357,
         "fullname": "Nabeel Hussain M N",
         "username": "https://github.com/nabeel001"
     },
 
     {
-        "id": 362,
+        "id": 358,
         "fullname": "Debdeep Ghosal",
         "username": "https://github.com/Debdeepghosal"
     },
     {
-        "id": 363,
+        "id": 359,
         "fullname": "Avadhoot Kulkarni",
         "username": "https://github.com/AvadhootK"
     },
     {
-        "id": 364,
+        "id": 360,
         "fullname": "Abiola Ayodele",
         "username": "https://github.com/babboe1"
 
 
     },
     {
-        "id": 365,
+        "id": 361,
         "fullname": "Shubham Kumar",
         "username": "https://github.com/shubham-1903"
     },
     {
-        "id": 366,
+        "id": 361,
         "fullname": "Ian Kisali",
         "username": "https://github.com/iankisali"
     },
     {
-        "id": 367,
+        "id": 362,
         "fullname": "Priya Rawat",
         "username": "https://github.com/Priya19999"
     },
     {
-        "id": 368,
+        "id": 363,
         "fullname": "Aditya Priyanshu",
         "username": "https://github.com/Adityap-3055"
     },
     {
-        "id": 369,
+        "id": 364,
         "fullname": "Theis Andatu",
         "username": "https://github.com/antheiz"
     },
     {
-      "id":370,
+      "id":365,
       "fullname": "Prajwal Kulkarni",
       "username": "https://github.com/prajwalkulkarni"
     },
     {
-        "id":371,
-        "fullname":"Shreyas Kamath",
-        "username":"https://github.com/shreyas2711"
+        "id": 366,
+        "fullname": "Khushi",
+        "username": "https://github.com/kanscerr"
     }
-
 ]
