@@ -5,6 +5,9 @@ on:
     types: [opened, synchronize, reopened]
   check_suite:
     types: [completed]
+  workflow_run:
+    workflows: ['CI · Validate site']
+    types: [completed]
 
 permissions:
   contents: write
@@ -14,7 +17,9 @@ permissions:
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
-    if: github.repository == 'fineanmol/Hacktoberfest2025'
+    if: |
+      github.repository == 'fineanmol/Hacktoberfest2025' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     steps:
       - name: Checkout scripts
         uses: actions/checkout@v4
