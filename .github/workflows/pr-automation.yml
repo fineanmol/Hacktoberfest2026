@@ -11,48 +11,24 @@ jobs:
   hint:
     runs-on: ubuntu-latest
     steps:
-      - name: Comment on conflicting PRs
+      - name: Checkout scripts
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/scripts
+          sparse-checkout-cone-mode: false
+
+      - name: Comment on conflicting PRs (as fineanmol)
+        id: hint_fineanmol
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.AUTOMERGE_TOKEN }}
-          script: |
-            const pr = context.payload.pull_request;
-            const { data: fresh } = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr.number,
-            });
-            if (fresh.mergeable !== false) {
-              core.info(`PR #${pr.number} mergeable=${fresh.mergeable} — no conflict hint needed`);
-              return;
-            }
+          script-path: .github/scripts/post-conflict-hint.js
 
-            const marker = '<!-- merge-conflict-hint -->';
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: pr.number,
-              per_page: 100,
-            });
-            if (comments.some((c) => c.body && c.body.includes(marker))) {
-              core.info('Conflict hint already posted');
-              return;
-            }
-
-            const baseBranch = pr.base.ref;
-            const body = [
-              marker,
-              '🔧 **Merge conflicts detected**',
-              '',
-              'To fix:',
-              `1. \`git fetch upstream\` and merge latest \`${baseBranch}\` into your branch`,
-              '2. Resolve conflicts locally',
-              '3. Push your branch — we will merge once it is clean',
-            ].join('\n');
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: pr.number,
-              body,
-            });
+      - name: Comment on conflicting PRs (fallback)
+        if: steps.hint_fineanmol.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script-path: .github/scripts/post-conflict-hint.js
