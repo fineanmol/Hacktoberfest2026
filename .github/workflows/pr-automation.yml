@@ -25,8 +25,8 @@ jobs:
         with:
           github-token: ${{ secrets.AUTOMERGE_TOKEN }}
           script: |
-            const fs = require('fs');
-            eval(fs.readFileSync('.github/scripts/post-conflict-hint.js', 'utf8'));
+            const run = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/post-conflict-hint.js`);
+            await run({ github, context, core });
 
       - name: Comment on conflicting PRs (fallback)
         if: steps.hint_fineanmol.outcome == 'failure'
@@ -34,5 +34,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const fs = require('fs');
-            eval(fs.readFileSync('.github/scripts/post-conflict-hint.js', 'utf8'));
+            const run = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/post-conflict-hint.js`);
+            await run({ github, context, core });

@@ -27,8 +27,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const fs = require('fs');
-            eval(fs.readFileSync('.github/scripts/post-star-reminder.js', 'utf8'));
+            const run = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/post-star-reminder.js`);
+            await run({ github, context, core });
 
       - name: Comment on new issue
         if: github.event_name == 'issues'
