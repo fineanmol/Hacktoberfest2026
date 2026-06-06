@@ -1,13 +1,11 @@
 .navbar{
-  padding:.6rem 3rem
+  padding:.5rem 2rem
 }
 nav{
   background-color:var(--nav-color)
 }
 .navbar-nav{
-  width:100%;
-  display: flex;
-  justify-content: space-between;
+  width:100%
 }
 .navbar-brand{
   line-height:1;
@@ -22,7 +20,7 @@ nav{
   color:var(--text);
   position:relative;
   padding:5px;
-  margin:0 10px
+  margin:0 10px!important
 }
 .navbar-light .navbar-nav .active{
   background-color:#f1ffc5
@@ -39,9 +37,9 @@ nav{
   left:auto;
   right:0;
   position:absolute;
-  -webkit-transition:width .1.5s ease-in-out;
-  -o-transition:width .1.5s ease-in-out;
-  transition:width .1.5s ease-in-out;
+  -webkit-transition:width .2s ease-in-out;
+  -o-transition:width .2s ease-in-out;
+  transition:width .2s ease-in-out;
   width:0
 }
 .navbar-light .navbar-nav .nav-link:hover{
@@ -54,7 +52,7 @@ nav{
 }
 .nav-link svg{
   width:auto;
-  height:26px;
+  height:25px;
   vertical-align:text-top
 }
 .navbar-light .navbar-nav .nav-link:hover{
