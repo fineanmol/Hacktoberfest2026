@@ -1,5 +1,4 @@
-name: PR merge hints
-
+name: Comment · PR merge conflict help
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
