@@ -24,11 +24,15 @@ jobs:
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.AUTOMERGE_TOKEN }}
-          script-path: .github/scripts/post-conflict-hint.js
+          script: |
+            const fs = require('fs');
+            eval(fs.readFileSync('.github/scripts/post-conflict-hint.js', 'utf8'));
 
       - name: Comment on conflicting PRs (fallback)
         if: steps.hint_fineanmol.outcome == 'failure'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script-path: .github/scripts/post-conflict-hint.js
+          script: |
+            const fs = require('fs');
+            eval(fs.readFileSync('.github/scripts/post-conflict-hint.js', 'utf8'));
