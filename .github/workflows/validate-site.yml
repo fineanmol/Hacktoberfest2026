@@ -37,3 +37,10 @@ jobs:
             exit 0
           fi
           node --check "${FILES[@]}"
+          for f in "${FILES[@]}"; do
+            if grep -q 'https:github.com' "$f"; then
+              echo "Malformed GitHub URL in $f (use https://github.com/ with double slash)"
+              exit 1
+            fi
+          done
+          echo "Contributor URLs look OK."

@@ -1,67 +1,51 @@
+# Contributing
 
-# Contribution Rules📚:
+Thanks for stopping by. This repo is a simple static site — no npm install, no build.
 
-- You are allowed to make pull requests that break the rules. We just merge it ;)
-- Do NOT add any build steps e.g npm install (we want to keep this a simple static site)
-- Do NOT remove other content.
-- Styling/code can be pretty, ugly or stupid, big or small as long as it works
-- Add your name to the contributorsList file
-- Try to keep pull requests small to minimize merge conflicts
+## What to change
 
+Add yourself to `contributors/contributorsList.js`:
 
-## Getting Started 🤩🤗:
-
-- Fork this repo (button on top)
-- Clone on your local machine
-
-```terminal
-git clone https://github.com/fineanmol/Hacktoberfest2026.git
-```
-- Navigate to project directory.
-```terminal
-cd Hacktoberfest2026
+```javascript
+{
+  id: 374,
+  fullname: "Your Name",
+  username: "https://github.com/yourusername",
+},
 ```
 
-- Create a new Branch
+- Put new entries at the **end** of the list.
+- Use the next unused `id`.
+- The GitHub link must start with `https://github.com/` (double slash after `https:`).
 
-```markdown
-git checkout -b my-new-branch
-```
-- Add your Name to `contributors/contributorsList.js`
-```markdown
-git add .
-```
-- Commit your changes.
+## Steps
 
-```markdown
-git commit -m "Relevant message"
-```
-- Then push 
-```markdown
-git push origin my-new-branch
+```bash
+git clone https://github.com/fineanmol/Hacktoberfest2025.git
+cd Hacktoberfest2025
+git checkout -b add-my-name
+# edit contributors/contributorsList.js
+git add contributors/contributorsList.js
+git commit -m "Add Your Name to contributors list"
+git push origin add-my-name
 ```
 
+Then open a pull request on GitHub.
 
-- Create a new pull request from your forked repository
+## Rules (loose on purpose)
 
-<br>
+- Don't delete other people's entries.
+- One contributor per PR when you can — smaller PRs merge faster.
+- Styling tweaks are fine if the page still loads.
 
-## Avoid Conflicts {Syncing your fork}
+## Conflicts
 
-An easy way to avoid conflicts is to add an 'upstream' for your git repo, as other PR's may be merged while you're working on your branch/fork.   
+If your fork is behind:
 
-```terminal
-git remote add upstream https://github.com/fineanmol/Hacktoberfest2026
-```
-
-You can verify that the new remote has been added by typing
-```terminal
-git remote -v
-```
-
-To pull any new changes from your parent repo simply run
-```terminal
+```bash
+git remote add upstream https://github.com/fineanmol/Hacktoberfest2025.git
+git fetch upstream
 git merge upstream/master
 ```
 
-This will give you any eventual conflicts and allow you to easily solve them in your repo. It's a good idea to use it frequently in between your own commits to make sure that your repo is up to date with its parent.
+Fix any conflicts in `contributorsList.js`, then push again.
