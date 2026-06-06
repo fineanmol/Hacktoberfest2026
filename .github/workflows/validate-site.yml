@@ -1,5 +1,4 @@
-name: Validate site on PR
-
+name: CI · Validate site
 on:
   pull_request:
     types: [opened, synchronize, reopened]
