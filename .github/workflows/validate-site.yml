@@ -24,6 +24,12 @@ jobs:
           done
           echo "Core site files present."
 
+      - name: Validate HTML structure
+        run: |
+          set -euo pipefail
+          npx --yes html-validate index.html
+          echo "HTML validation passed."
+
       - name: Validate contributor JS syntax (changed files only)
         run: |
           set -euo pipefail
