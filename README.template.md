@@ -1,4 +1,4 @@
-Hacktoberfest-2026
+Hacktoberfest-{{YEAR}}
 
 **Checkout this Project as well [Annoying Button😡](https://annoyingsubmitbutton.netlify.app/) , It's hacktoberfest github : [https://github.com/fineanmol/Annoying-submit-button](https://github.com/fineanmol/Annoying-submit-button)**
 
@@ -6,7 +6,7 @@ Hacktoberfest-2026
 # Submit your PR on this new repo [Hacktoberfest](https://github.com/fineanmol/hacktoberfest) , There we are merging all PR. 
 
 In this current repo, there are alot of conflicts, we are not merging until all conflicts get resolved.
-Hacktoberfest { [Live Website](https://fineanmol.github.io/Hacktoberfest2025/)}
+Hacktoberfest { [Live Website]({{LIVE_URL}})}
 
 
 **This is a beginner-friendly project to help you get started with your
@@ -14,7 +14,7 @@ Hacktoberfest { [Live Website](https://fineanmol.github.io/Hacktoberfest2025/)}
 
 P.S. Star ⭐ and Share this repository, if you had fun!! 😍
 
-Hacktoberfest 2026
+Hacktoberfest {{YEAR}}
 ![Event Completed](/scripts/Event_Completed_.png)
 
 # 📌 Videos 📽️:
@@ -40,11 +40,11 @@ Hacktoberfest 2026
 - Clone on your local machine
 
 ```terminal
-git clone https://github.com/fineanmol/Hacktoberfest2025.git
+git clone {{GITHUB_REPO}}.git
 ```
 - Navigate to project directory.
 ```terminal
-cd Hacktoberfest2025
+cd {{REPO}}
 ```
 
 - Create a new Branch
@@ -78,7 +78,7 @@ git push origin my-new-branch
 An easy way to avoid conflicts is to add an 'upstream' for your git repo, as other PR's may be merged while you're working on your branch/fork.   
 
 ```terminal
-git remote add upstream https://github.com/fineanmol/Hacktoberfest2025
+git remote add upstream {{GITHUB_REPO}}
 ```
 
 You can verify that the new remote has been added by typing
@@ -116,12 +116,12 @@ For more information on syncing forks [read this article from Github](https://he
 
 - Should I come closer to the text saying 'Don't come closer' on the left side of the home tab ?
   - Nope.
-- How many pull request (PR) must be made, if I want to get an awesome tshirt from Hacktoberfest 2026?
+- How many pull request (PR) must be made, if I want to get an awesome tshirt from Hacktoberfest {{YEAR}}?
   - 4
-- How do I track my progress to get an awesome shirt from Hacktoberfest 2026?
+- How do I track my progress to get an awesome shirt from Hacktoberfest {{YEAR}}?
   - [go to :](https://hacktoberfest.digitalocean.com/profile/). (Check Out Your Own Stats at Right Top)
-- What is the duration of Hacktoberfest 2026?
-  - It is from 1st october to 31st october 2026...
+- What is the duration of Hacktoberfest {{YEAR}}?
+  - It is from 1st october to 31st october {{YEAR}}...
 - What is the event for?
   - For the open source community engagement and learn how to contribute to open source.
 
@@ -132,6 +132,6 @@ For more information on syncing forks [read this article from Github](https://he
 <br>
 
 ## Our Top Contributors 
-<p align="center"><a href="https://github.com/fineanmol/Hacktoberfest2025/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=fineanmol/Hacktoberfest2025" />
+<p align="center"><a href="{{GITHUB_REPO}}/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo={{OWNER}}/{{REPO}}" />
 </a></p>

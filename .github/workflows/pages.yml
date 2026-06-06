@@ -3,19 +3,21 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+  schedule:
+    - cron: '0 6 1 1 *'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
-# Queue deploys instead of cancelling — survives rapid merge pushes to master.
 concurrency:
   group: pages-hf2025
   cancel-in-progress: false
 
 jobs:
   deploy:
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -23,6 +25,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Sync docs year and repo links
+        run: node scripts/render-docs.js
+
+      - name: Commit synced docs
+        run: |
+          git config user.name "Anmol Agarwal"
+          git config user.email "24794539+fineanmol@users.noreply.github.com"
+          git add README.md CONTRIBUTING.md
+          if git diff --staged --quiet; then
+            echo "Docs already up to date."
+          else
+            git commit -m "chore: sync docs year and repo links [skip ci]"
+            git push
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

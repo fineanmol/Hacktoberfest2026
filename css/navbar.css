@@ -5,7 +5,29 @@ nav{
   background-color:var(--nav-color)
 }
 .navbar-nav{
-  width:100%
+  width:100%;
+  flex-wrap:wrap;
+  align-items:center
+}
+@media (min-width:992px){
+  .navbar-nav{
+    justify-content:flex-end
+  }
+  .navbar-nav .nav-item{
+    flex-shrink:0
+  }
+}
+@media (max-width:991.98px){
+  #navbarColor01 .navbar-nav{
+    max-height:70vh;
+    overflow-y:auto;
+    padding:.5rem 0 1rem
+  }
+  .navbar-light .navbar-nav .nav-link{
+    display:block;
+    padding:.55rem 0!important;
+    margin:0!important
+  }
 }
 .navbar-brand{
   line-height:1;
