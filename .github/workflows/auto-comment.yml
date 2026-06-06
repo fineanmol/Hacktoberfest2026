@@ -1,5 +1,4 @@
-name: Auto Comment
-
+name: Comment · Star repo reminder
 on:
   pull_request_target:
     types: [opened, reopened, synchronize]
