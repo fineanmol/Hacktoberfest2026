@@ -35,25 +35,63 @@ function getPullRequestsFromContext(context) {
   return [];
 }
 
-async function validateCheckPassed(github, owner, repo, sha, core) {
-  const { data } = await github.rest.checks.listForRef({
+async function getPullRequestsForWorkflowRun(github, owner, repo, workflowRun) {
+  const { data: prs } = await github.rest.pulls.list({
     owner,
     repo,
-    ref: sha,
+    state: 'open',
+    head: `${owner}:${workflowRun.head_branch}`,
+    per_page: 10,
   });
 
-  const validate = data.check_runs.find((run) => run.name === 'validate');
-  if (!validate) {
-    core.info('No validate check run found yet');
-    return false;
+  return prs.filter((pr) => pr.head.sha === workflowRun.head_sha);
+}
+
+async function resolvePullRequests(github, context, core) {
+  const { owner, repo } = context.repo;
+
+  if (context.eventName === 'workflow_run') {
+    const workflowRun = context.payload.workflow_run;
+    if (workflowRun.conclusion !== 'success') {
+      core.info(`workflow_run conclusion=${workflowRun.conclusion} — skip`);
+      return [];
+    }
+
+    return getPullRequestsForWorkflowRun(github, owner, repo, workflowRun);
   }
 
-  if (validate.status !== 'completed') {
-    core.info(`validate check status=${validate.status}`);
-    return false;
+  return getPullRequestsFromContext(context);
+}
+
+async function validateCheckPassed(github, owner, repo, sha, core, { wait = false } = {}) {
+  const attempts = wait ? 12 : 1;
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const { data } = await github.rest.checks.listForRef({
+      owner,
+      repo,
+      ref: sha,
+    });
+
+    const validate = data.check_runs.find((run) => run.name === 'validate');
+    if (!validate) {
+      core.info('No validate check run found yet');
+    } else if (validate.status !== 'completed') {
+      core.info(`validate check status=${validate.status}`);
+    } else if (validate.conclusion === 'success') {
+      return true;
+    } else {
+      core.info(`validate check conclusion=${validate.conclusion}`);
+      return false;
+    }
+
+    if (attempt + 1 < attempts) {
+      core.info(`Waiting for validate check (attempt ${attempt + 1}/${attempts})`);
+      await sleep(15000);
+    }
   }
 
-  return validate.conclusion === 'success';
+  return false;
 }
 
 async function getMergeablePull(github, owner, repo, pullNumber, core) {
@@ -83,7 +121,9 @@ async function getMergeablePull(github, owner, repo, pullNumber, core) {
 
 module.exports = async ({ github, context, core }) => {
   const { owner, repo } = context.repo;
-  const pullRequests = getPullRequestsFromContext(context);
+  const pullRequests = await resolvePullRequests(github, context, core);
+  const waitForValidate =
+    context.eventName === 'pull_request_target' || context.eventName === 'check_suite';
 
   if (pullRequests.length === 0) {
     core.info('No pull requests to process for this event');
@@ -123,7 +163,8 @@ module.exports = async ({ github, context, core }) => {
       owner,
       repo,
       fresh.head.sha,
-      core
+      core,
+      { wait: waitForValidate }
     );
     if (!validateOk) {
       core.info(`PR #${pullNumber} validate check not green — skip`);
