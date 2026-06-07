@@ -70,6 +70,14 @@
     loadMoreBtn.hidden = visibleCount >= total;
   }
 
+  function updateContributorCount(count) {
+    const countElement = document.getElementById('contributor-count');
+    if (countElement) {
+      countElement.textContent = count;
+    }
+  }
+
+  updateContributorCount(contributors.length);
   render(contributors, visibleCount);
   updateLoadMoreState(contributors.length);
 
