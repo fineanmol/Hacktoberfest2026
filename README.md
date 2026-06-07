@@ -6,7 +6,7 @@ Hacktoberfest-2026
 # Submit your PR on this new repo [Hacktoberfest](https://github.com/fineanmol/hacktoberfest) , There we are merging all PR. 
 
 In this current repo, there are alot of conflicts, we are not merging until all conflicts get resolved.
-Hacktoberfest { [Live Website](https://fineanmol.github.io/Hacktoberfest2025/)}
+Hacktoberfest { [Live Website](https://fineanmol.github.io/Hacktoberfest2026/)}
 
 
 **This is a beginner-friendly project to help you get started with your
@@ -40,11 +40,11 @@ Hacktoberfest 2026
 - Clone on your local machine
 
 ```terminal
-git clone https://github.com/fineanmol/Hacktoberfest2025.git
+git clone https://github.com/fineanmol/Hacktoberfest2026.git
 ```
 - Navigate to project directory.
 ```terminal
-cd Hacktoberfest2025
+cd Hacktoberfest2026
 ```
 
 - Create a new Branch
@@ -78,7 +78,7 @@ git push origin my-new-branch
 An easy way to avoid conflicts is to add an 'upstream' for your git repo, as other PR's may be merged while you're working on your branch/fork.   
 
 ```terminal
-git remote add upstream https://github.com/fineanmol/Hacktoberfest2025
+git remote add upstream https://github.com/fineanmol/Hacktoberfest2026
 ```
 
 You can verify that the new remote has been added by typing
@@ -132,6 +132,6 @@ For more information on syncing forks [read this article from Github](https://he
 <br>
 
 ## Our Top Contributors 
-<p align="center"><a href="https://github.com/fineanmol/Hacktoberfest2025/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=fineanmol/Hacktoberfest2025" />
+<p align="center"><a href="https://github.com/fineanmol/Hacktoberfest2026/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=fineanmol/Hacktoberfest2026" />
 </a></p>
