@@ -32,6 +32,8 @@ jobs:
         id: merge_fineanmol
         continue-on-error: true
         uses: actions/github-script@v7
+        env:
+          REQUIRED_CHECK_NAME: validate
         with:
           github-token: ${{ secrets.AUTOMERGE_TOKEN }}
           script: |
@@ -41,6 +43,8 @@ jobs:
       - name: Merge bot PR (fallback)
         if: steps.merge_fineanmol.outcome == 'failure'
         uses: actions/github-script@v7
+        env:
+          REQUIRED_CHECK_NAME: validate
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |

@@ -63,7 +63,12 @@ async function resolvePullRequests(github, context, core) {
   return getPullRequestsFromContext(context);
 }
 
-async function validateCheckPassed(github, owner, repo, sha, core, { wait = false } = {}) {
+function requiredCheckName() {
+  return process.env.REQUIRED_CHECK_NAME || 'validate';
+}
+
+async function requiredCheckPassed(github, owner, repo, sha, core, { wait = false } = {}) {
+  const checkName = requiredCheckName();
   const attempts = wait ? 12 : 1;
 
   for (let attempt = 0; attempt < attempts; attempt += 1) {
@@ -73,20 +78,20 @@ async function validateCheckPassed(github, owner, repo, sha, core, { wait = fals
       ref: sha,
     });
 
-    const validate = data.check_runs.find((run) => run.name === 'validate');
-    if (!validate) {
-      core.info('No validate check run found yet');
-    } else if (validate.status !== 'completed') {
-      core.info(`validate check status=${validate.status}`);
-    } else if (validate.conclusion === 'success') {
+    const checkRun = data.check_runs.find((run) => run.name === checkName);
+    if (!checkRun) {
+      core.info(`No ${checkName} check run found yet`);
+    } else if (checkRun.status !== 'completed') {
+      core.info(`${checkName} check status=${checkRun.status}`);
+    } else if (checkRun.conclusion === 'success') {
       return true;
     } else {
-      core.info(`validate check conclusion=${validate.conclusion}`);
+      core.info(`${checkName} check conclusion=${checkRun.conclusion}`);
       return false;
     }
 
     if (attempt + 1 < attempts) {
-      core.info(`Waiting for validate check (attempt ${attempt + 1}/${attempts})`);
+      core.info(`Waiting for ${checkName} check (attempt ${attempt + 1}/${attempts})`);
       await sleep(15000);
     }
   }
@@ -122,8 +127,10 @@ async function getMergeablePull(github, owner, repo, pullNumber, core) {
 module.exports = async ({ github, context, core }) => {
   const { owner, repo } = context.repo;
   const pullRequests = await resolvePullRequests(github, context, core);
-  const waitForValidate =
-    context.eventName === 'pull_request_target' || context.eventName === 'check_suite';
+  const waitForCheck =
+    context.eventName === 'pull_request' ||
+    context.eventName === 'pull_request_target' ||
+    context.eventName === 'check_suite';
 
   if (pullRequests.length === 0) {
     core.info('No pull requests to process for this event');
@@ -158,16 +165,16 @@ module.exports = async ({ github, context, core }) => {
       continue;
     }
 
-    const validateOk = await validateCheckPassed(
+    const checkOk = await requiredCheckPassed(
       github,
       owner,
       repo,
       fresh.head.sha,
       core,
-      { wait: waitForValidate }
+      { wait: waitForCheck }
     );
-    if (!validateOk) {
-      core.info(`PR #${pullNumber} validate check not green — skip`);
+    if (!checkOk) {
+      core.info(`PR #${pullNumber} ${requiredCheckName()} check not green — skip`);
       continue;
     }
 
