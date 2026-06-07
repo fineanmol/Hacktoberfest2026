@@ -1895,4 +1895,10 @@ contributors = [
     fullname: "Arnav",
     username: "https://github.com/arnav0929/",
   },
+
+  {
+    id: 374,
+    fullname: "JaviDB",
+    username: "https://github.com/JavierTLoina",
+  },
 ];
