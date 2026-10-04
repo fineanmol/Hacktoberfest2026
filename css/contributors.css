@@ -170,6 +170,9 @@ a {
 a:hover {
   text-decoration: none;
 }
+body:not(.light) #box a:not(:hover) {
+  color: #fff;
+}
 .heading {
   text-transform: uppercase;
   font-weight: 700;
