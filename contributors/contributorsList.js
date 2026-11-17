@@ -1973,11 +1973,6 @@ contributors = [
   },
   {
     id: 389,
-      {
-    id: 392,
-    fullname: "Shikhar Sharma",
-    username: "https://github.com/shikjazz",
-  },
     fullname: "Muhammad_Haroon_Rashid",
     username: "https://github.com/MuhammadHaroonRashid",
   },
@@ -1990,5 +1985,10 @@ contributors = [
     id: 391,
     fullname: "Danish Basha",
     username: "https://github.com/DanishBasha",
+  },
+  {
+    id: 392,
+    fullname: "Shikhar Sharma",
+    username: "https://github.com/shikjazz",
   },
 ];
